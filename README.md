@@ -1,51 +1,50 @@
-# Ray tracer paralelo en C++ con TBB
-
-Renderizador de imágenes por trazado de rayos (ray tracing) escrito en C++23 y paralelizado con Intel oneTBB. Práctica de Arquitectura de Computadores (Universidad Carlos III de Madrid), versión paralela (`render-par`).
-
-## Qué incluye
-
-- **Geometría y escena:** esferas y cilindros con materiales, cámara configurable, lectura de escenas desde fichero y generador de números aleatorios Mersenne Twister.
-- **Trazador de rayos** con muestreo por píxel, profundidad máxima de rebotes y corrección gamma.
-- **Paralelización con TBB:** `parallel_for` sobre rangos 2D, con número de hilos configurable, elección de partitioner (simple, static o auto) y tamaño de grano.
-- **Pruebas:** tests unitarios (`utcommon/`) y funcionales (`ftest.py`, escenas en `test_files/`).
-- **Calidad de código:** flags estrictos de compilación (`-Wall -Wextra -Werror -pedantic`), `clang-tidy` y `clang-format`, y un entorno reproducible con Dev Container.
-
-## Estructura
-
-| Carpeta | Contenido |
+# Parallel Ray Tracer in C++ with TBB
+ 
+Image renderer based on ray tracing, written in C++23 and parallelized with Intel oneTBB. Project for the Computer Architecture course (Universidad Carlos III de Madrid), parallel version (`render-par`).
+ 
+## What's included
+ 
+- **Geometry and scene:** spheres and cylinders with materials, configurable camera, scene loading from file and a Mersenne Twister random number generator.
+- **Ray tracer** with per-pixel sampling, maximum bounce depth and gamma correction.
+- **Parallelization with TBB:** `parallel_for` over 2D ranges, with configurable thread count, partitioner choice (simple, static or auto) and grain size.
+- **Tests:** unit tests (`utcommon/`) and functional tests (`ftest.py`, scenes in `test_files/`).
+- **Code quality:** strict compiler flags (`-Wall -Wextra -Werror -pedantic`), `clang-tidy` and `clang-format`, and a reproducible environment with Dev Container.
+## Structure
+ 
+| Folder | Contents |
 |---|---|
-| `common/` | Biblioteca con geometría, materiales, escena y trazador de rayos |
-| `par/` | Ejecutable paralelo `render-par` |
-| `utcommon/` | Tests unitarios |
-| `test_files/` | Configuraciones y escenas de prueba |
-
-## Cómo compilarlo
-
-Requiere CMake 3.28 o superior, `g++-14` y TBB.
-
+| `common/` | Library with geometry, materials, scene and ray tracer |
+| `par/` | Parallel executable `render-par` |
+| `utcommon/` | Unit tests |
+| `test_files/` | Test configurations and scenes |
+ 
+## Build
+ 
+Requires CMake 3.28 or later, `g++-14` and TBB.
+ 
 ```bash
 cmake --preset default
 cmake --build --preset gcc-release
 ```
-
-## Cómo ejecutarlo
-
+ 
+## Usage
+ 
 ```bash
-render-par <config.txt> <escena.txt> <salida.ppm> [num_hilos] [partitioner] [tamaño_grano]
+render-par <config.txt> <scene.txt> <output.ppm> [num_threads] [partitioner] [grain_size]
 ```
-
-Ejemplo con una de las escenas de prueba:
-
+ 
+Example with one of the test scenes:
+ 
 ```bash
-render-par test_files/config_test1.txt test_files/scene_test1.txt salida.ppm
+render-par test_files/config_test1.txt test_files/scene_test1.txt output.ppm
 ```
-
-La salida es una imagen en formato PPM. La carpeta de destino debe existir.
-
-## Tecnologías
-
+ 
+The output is an image in PPM format. The destination folder must already exist.
+ 
+## Technologies
+ 
 C++23 · oneTBB · CMake · Docker / Dev Container · clang-tidy · clang-format
-
-## Autoría
-
-Trabajo en equipo de 4 personas: María Arias Rodríguez, Jorge Ignacio Castañeda Vallenilla, Ana Díaz Jiménez y Jaime Sánchez Sánchez.
+ 
+## Authors
+ 
+Team project by María Arias Rodríguez, Jorge Ignacio Castañeda Vallenilla, Ana Díaz Jiménez and Jaime Sánchez Sánchez.
