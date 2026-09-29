@@ -1,0 +1,7 @@
+matte: ground 0.8 0.8 0.8
+refractive: crystal 1.5
+metal: chrome 0.95 0.95 0.95 0.05
+
+sphere: 0 -1000.5 0 1000 ground
+sphere: 0 0 0 1 crystal
+sphere: -2.5 0 0 1 chrome

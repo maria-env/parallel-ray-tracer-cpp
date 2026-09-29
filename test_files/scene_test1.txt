@@ -1,0 +1,2 @@
+matte: red_matte 0.8 0.2 0.2
+sphere: 0 0 0 1 red_matte

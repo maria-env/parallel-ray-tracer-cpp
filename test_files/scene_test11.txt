@@ -1,0 +1,1 @@
+sphere: 0 0 0 1 material_no_definido

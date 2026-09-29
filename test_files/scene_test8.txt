@@ -1,0 +1,9 @@
+refractive: air 1.0
+refractive: water 1.33
+refractive: glass 1.5
+refractive: diamond 2.42
+
+sphere: -3 0 0 0.8 air
+sphere: -1 0 0 0.8 water
+sphere: 1 0 0 0.8 glass
+sphere: 3 0 0 0.8 diamond
